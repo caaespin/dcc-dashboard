@@ -48,6 +48,9 @@
 			width: 100%;
 		}
  */
+		b{
+			font-weight: bold !important;
+		}
 	
 		/* facet chooser edits */
 		ul{
@@ -78,60 +81,65 @@
 		<div class="layout-row color-patches cgl-site flex">
 			<div class="flex-20 nav color-patch cgl-green">
 				<ul>
-                                        <li class="nav-header md-body-2">Cloud</li>
+                                        <li class="nav-header md-body-2"><b>Data Location</b></li>
+                                        <div>
+                                        <input type="checkbox" ng-checked="hasCheck('cloud', 'GDC')" ng-click="checking('cloud', 'GDC')">  GDC: <span class="md-body-1"><b>0</b></span>
+                                        </div>
                                         <div ng-repeat="item in results.cloud.terms">
                                                 <input type="checkbox" ng-checked="hasCheck('cloud', item['term'])" ng-click="checking('cloud', item['term'])">
-                                                        {- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+                                                        {- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
                                                 </input>
                                         </div>
 
-					<li class="nav-header md-body-2">Center</li>
-                                        <input type="checkbox" ng-checked="hasCheck('center_name', 'Hudson Alpha/ St. Jude')" ng-click="checking('center_name', 'Hudson Alpha/ St. Jude')">  <div>Hudson Alpha/ St. Jude: </div><span class="md-body-1">0</span>
+					<li class="nav-header md-body-2"><b>Center</b></li>
+					<div>
+                                        <input type="checkbox" ng-checked="hasCheck('center_name', 'Hudson Alpha/ St. Jude')" ng-click="checking('center_name', 'Hudson Alpha/ St. Jude')">  Hudson Alpha/ St. Jude: <span class="md-body-1"><b>0</b></span>
+					</div>
 					<div ng-repeat="item in results.centerName.terms">
 						<input type="checkbox" ng-checked="hasCheck('center_name', item['term'])" ng-click="checking('center_name', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 
-					<li class="nav-header md-body-2">Program</li>
+					<li class="nav-header md-body-2"><b>Program</b></li>
 					<div ng-repeat="item in results.program.terms">
 						<input type="checkbox" ng-checked="hasCheck('program', item['term'])" ng-click="checking('program', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 
-					<li class="nav-header md-body-2">Project</li>
+					<li class="nav-header md-body-2"><b>Project</b></li>
 					<div ng-repeat="item in results.projectCode.terms">
 						<input type="checkbox" ng-checked="hasCheck('project', item['term'])" ng-click="checking('project', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 
-					<li class="nav-header md-body-2">Workflow</li>
+					<li class="nav-header md-body-2"><b>Workflow</b></li>
 					<div ng-repeat="item in results.workFlow.terms">
 						<input type="checkbox" ng-checked="hasCheck('workflow', item['term'])" ng-click="checking('workflow', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 
-					<li class="nav-header md-body-2">Analysis Type</li>
+					<li class="nav-header md-body-2"><b>Analysis Type</b></li>
 					<div ng-repeat="item in results.analysisType.terms">
 						<input type="checkbox" ng-checked="hasCheck('analysis_type', item['term'])"  ng-click="checking('analysis_type', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 				
-					<li class="nav-header md-body-2">Specimen Type</li>
+					<li class="nav-header md-body-2"><b>Specimen Type</b></li>
 					<div ng-repeat="item in results.specimenType.terms">
 						<input type="checkbox" ng-checked="hasCheck('specimen_type', item['term'])" ng-click="checking('specimen_type', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 
-					<li class="nav-header md-body-2">File Type</li>
+					<li class="nav-header md-body-2"><b>File Type</b></li>
 					<div ng-repeat="item in results.fileFormat.terms">
 						<input type="checkbox" ng-checked="hasCheck('file_type', item['term'])" ng-click="checking('file_type', item['term'])">
-							{- item['term'] -}: <span class="md-body-1">{- item['count'] -}</span>
+							{- item['term'] -}: <span class="md-body-1"><b>{- item['count'] -}</b></span>
 						</input>
 					</div>
 				</ul>
@@ -165,9 +173,6 @@
 						 <span class="md-subhead">Workflow</span>
 					</cgl-data-table-cell>
 					<cgl-data-table-cell>
-						 <span class="md-subhead">File Name</span>
-					</cgl-data-table-cell>
-					<cgl-data-table-cell>
                                                  <span class="md-subhead">File Type</span>
                                         </cgl-data-table-cell>
                                         <cgl-data-table-cell>
@@ -188,9 +193,6 @@
 					<cgl-data-table-cell>
 						 {- item['analysisMethod']['software'] -}
 					</cgl-data-table-cell>
-					<cgl-data-table-cell>
-                                                 {- item['fileCopies'][0]['fileName'] -}
-                                        </cgl-data-table-cell>
                                         <cgl-data-table-cell>
                                                  {- item['dataCategorization']['dataType'] -}
                                         </cgl-data-table-cell>
